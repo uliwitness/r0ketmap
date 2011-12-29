@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'r0ketmap' target in the 'r0ketmap' project
+//
+
+#ifdef __OBJC__
+	#import <Cocoa/Cocoa.h>
+#endif
