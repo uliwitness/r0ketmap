@@ -26,6 +26,10 @@
 	archiveFilePaths = [[NSMutableArray alloc] init];
 	
 	NSString		*	archiveFolder = [@"~/r0ketmap" stringByExpandingTildeInPath];
+	
+	if( ![[NSFileManager defaultManager] fileExistsAtPath: archiveFolder] )
+		[[NSFileManager defaultManager] createDirectoryAtPath: archiveFolder withIntermediateDirectories: NO attributes: nil error: nil];
+	
 	for( NSString *subpath in [[NSFileManager defaultManager] enumeratorAtPath: archiveFolder] )
 	{
 		if( [[subpath pathExtension] isEqualToString: @"json"] )
@@ -53,7 +57,7 @@
 		NSLog( @"%@", err );
 	NSArray*		readers = [decodedObject objectForKey: @"reader"];
 	
-	NSLog( @"%@", decodedObject );
+	//NSLog( @"%@", decodedObject );
 	
 	[self.pointsView removeAllTags];
 	
@@ -83,7 +87,7 @@
 	[_timeSlider setMaxValue: [archiveFilePaths count]];
 	[_timeSlider setDoubleValue: [archiveFilePaths count]];
 	
-	NSLog( @"%lu tags", [[decodedObject objectForKey: @"tag"] count] );
+	//NSLog( @"%lu tags", [[decodedObject objectForKey: @"tag"] count] );
 }
 
 
