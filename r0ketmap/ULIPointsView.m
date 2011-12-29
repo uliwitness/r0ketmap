@@ -22,11 +22,13 @@
    NSInteger	tagID;
    NSPoint		tagPosition;
    NSInteger	tagFloor;
+   NSString	*	nickName;
 }
 
 @property (assign) NSInteger	tagID;
 @property (assign) NSPoint		tagPosition;
 @property (assign) NSInteger	tagFloor;
+@property (copy) NSString	*	nickName;
 
 @end
 
@@ -36,6 +38,15 @@
 @synthesize tagID;
 @synthesize tagPosition;
 @synthesize tagFloor;
+@synthesize nickName;
+
+-(void)	dealloc
+{
+	[nickName release];
+	nickName = nil;
+	
+	[super dealloc];
+}
 
 @end
 
@@ -100,13 +111,14 @@
 }
 
 
--(void)	addTagWithID: (NSInteger)tagID atPoint: (NSPoint)position floor: (NSInteger)inFloor
+-(void)	addTagWithID: (NSInteger)tagID atPoint: (NSPoint)position floor: (NSInteger)inFloor name: (NSString*)nickName
 {
 	ULITagEntry		*	tag = [[ULITagEntry alloc] init];
 	
 	[tag setTagID: tagID];
 	[tag setTagPosition: position];
 	[tag setTagFloor: inFloor];
+	[tag setNickName: nickName];
 	
 	[tags addObject: tag];
 	
@@ -143,7 +155,7 @@
 		NSPoint		textPos = tagBox.origin;
 		textPos.x = NSMaxX(tagBox);
 		NSDictionary	*	attrs = [NSDictionary dictionaryWithObjectsAndKeys: [NSFont systemFontOfSize: [NSFont smallSystemFontSize]], NSFontAttributeName, [NSColor redColor], NSBackgroundColorAttributeName, [NSColor whiteColor], NSForegroundColorAttributeName, nil];
-		[[NSString stringWithFormat: @" %llx ", currTag.tagID] drawAtPoint: textPos withAttributes: attrs];
+		[[NSString stringWithFormat: @" %llx %@ ", currTag.tagID, currTag.nickName ? currTag.nickName : @""] drawAtPoint: textPos withAttributes: attrs];
 	}
 
 	

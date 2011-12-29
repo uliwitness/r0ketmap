@@ -21,6 +21,6 @@
 }
 
 -(void)	removeAllTags;
--(void)	addTagWithID: (NSInteger)tagID atPoint: (NSPoint)position floor: (NSInteger)floor;
+-(void)	addTagWithID: (NSInteger)tagID atPoint: (NSPoint)position floor: (NSInteger)floor name: (NSString*)nickName;
 
 @end

@@ -43,10 +43,17 @@
 -(void)	fetchNewData: (NSTimer*)sender
 {
 	NSData	*	theData = [NSData dataWithContentsOfURL: [NSURL URLWithString: @"http://176.99.39.100/tracking.json"]];
-	JSONDecoder*	theDecoder = [JSONDecoder decoder];
-	NSDictionary*	decodedObject = [theDecoder objectWithData: theData];
+
+	//NSLog( @"%@", theData );
+
+	NSError		*	err = nil;
+	JSONDecoder	*	theDecoder = [JSONDecoder decoder];
+	NSDictionary*	decodedObject = [theDecoder objectWithData: theData error: &err];
+	if( !decodedObject && err != nil )
+		NSLog( @"%@", err );
 	NSArray*		readers = [decodedObject objectForKey: @"reader"];
 	
+	NSLog( @"%@", decodedObject );
 	
 	[self.pointsView removeAllTags];
 	
@@ -64,7 +71,7 @@
 				floorNum = [[reader objectForKey: @"floor"] integerValue];
 		}
 		
-		[self.pointsView addTagWithID: theID atPoint: pos floor: floorNum];
+		[self.pointsView addTagWithID: theID atPoint: pos floor: floorNum name: [theTag objectForKey: @"nick"]];
 	}
 	
 	[self.pointsView setNeedsDisplay: YES];
@@ -75,6 +82,8 @@
 	[archiveFilePaths addObject: fpath];
 	[_timeSlider setMaxValue: [archiveFilePaths count]];
 	[_timeSlider setDoubleValue: [archiveFilePaths count]];
+	
+	NSLog( @"%lu tags", [[decodedObject objectForKey: @"tag"] count] );
 }
 
 
@@ -111,7 +120,7 @@
 					floorNum = [[reader objectForKey: @"floor"] integerValue];
 			}
 			
-			[self.pointsView addTagWithID: theID atPoint: pos floor: floorNum];
+			[self.pointsView addTagWithID: theID atPoint: pos floor: floorNum name: [theTag objectForKey: @"nick"]];
 		}
 		
 		[self.pointsView setNeedsDisplay: YES];
