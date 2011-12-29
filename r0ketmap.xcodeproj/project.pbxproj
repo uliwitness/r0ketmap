@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5547E58214ACE79300AA0218 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5547E58114ACE79300AA0218 /* JSONKit.m */; };
 		55EFABD714ABBD9F0004828D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EFABD614ABBD9F0004828D /* Cocoa.framework */; };
 		55EFABE114ABBD9F0004828D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55EFABDF14ABBD9F0004828D /* InfoPlist.strings */; };
 		55EFABE314ABBD9F0004828D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EFABE214ABBD9F0004828D /* main.m */; };
 		55EFABE714ABBD9F0004828D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 55EFABE514ABBD9F0004828D /* Credits.rtf */; };
 		55EFABEA14ABBD9F0004828D /* ULIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EFABE914ABBD9F0004828D /* ULIAppDelegate.m */; };
 		55EFABED14ABBDA00004828D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EFABEB14ABBDA00004828D /* MainMenu.xib */; };
-		55EFABF514ABBE300004828D /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EFABF414ABBE300004828D /* JSONKit.m */; };
 		55EFABF814ABC0D00004828D /* ULIPointsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EFABF714ABC0D00004828D /* ULIPointsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5547E58014ACE79300AA0218 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = SOURCE_ROOT; };
+		5547E58114ACE79300AA0218 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = SOURCE_ROOT; };
 		55EFABD214ABBD9F0004828D /* r0ketmap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = r0ketmap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55EFABD614ABBD9F0004828D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		55EFABD914ABBD9F0004828D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -31,8 +33,6 @@
 		55EFABE814ABBD9F0004828D /* ULIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ULIAppDelegate.h; sourceTree = "<group>"; };
 		55EFABE914ABBD9F0004828D /* ULIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ULIAppDelegate.m; sourceTree = "<group>"; };
 		55EFABEC14ABBDA00004828D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		55EFABF314ABBE300004828D /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = ../../../JSONKit/JSONKit.h; sourceTree = "<group>"; };
-		55EFABF414ABBE300004828D /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = ../../../JSONKit/JSONKit.m; sourceTree = "<group>"; };
 		55EFABF614ABC0D00004828D /* ULIPointsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULIPointsView.h; sourceTree = "<group>"; };
 		55EFABF714ABC0D00004828D /* ULIPointsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULIPointsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,12 +90,12 @@
 			children = (
 				55EFABE814ABBD9F0004828D /* ULIAppDelegate.h */,
 				55EFABE914ABBD9F0004828D /* ULIAppDelegate.m */,
-				55EFABF314ABBE300004828D /* JSONKit.h */,
-				55EFABF414ABBE300004828D /* JSONKit.m */,
 				55EFABEB14ABBDA00004828D /* MainMenu.xib */,
 				55EFABDD14ABBD9F0004828D /* Supporting Files */,
 				55EFABF614ABC0D00004828D /* ULIPointsView.h */,
 				55EFABF714ABC0D00004828D /* ULIPointsView.m */,
+				5547E58014ACE79300AA0218 /* JSONKit.h */,
+				5547E58114ACE79300AA0218 /* JSONKit.m */,
 			);
 			path = r0ketmap;
 			sourceTree = "<group>";
@@ -178,8 +178,8 @@
 			files = (
 				55EFABE314ABBD9F0004828D /* main.m in Sources */,
 				55EFABEA14ABBD9F0004828D /* ULIAppDelegate.m in Sources */,
-				55EFABF514ABBE300004828D /* JSONKit.m in Sources */,
 				55EFABF814ABC0D00004828D /* ULIPointsView.m in Sources */,
+				5547E58214ACE79300AA0218 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +299,7 @@
 				55EFABF214ABBDA00004828D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
