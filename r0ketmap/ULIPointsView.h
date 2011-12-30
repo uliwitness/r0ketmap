@@ -18,9 +18,12 @@
 	NSPoint				houseBottomRight;
 	NSPoint				houseTopRight;
 	NSPoint				houseTopLeft;
+	NSMutableIndexSet*	foundTags;
 }
 
 -(void)	removeAllTags;
 -(void)	addTagWithID: (NSInteger)tagID atPoint: (NSPoint)position floor: (NSInteger)floor name: (NSString*)nickName;
+
+-(IBAction)	takeSearchStringFrom: (id)sender;
 
 @end
